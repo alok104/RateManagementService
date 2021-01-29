@@ -3,6 +3,7 @@ package com.rms.ratemanagementservice.controller;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +19,7 @@ import com.rms.ratemanagementservice.service.RateManagementService;
 import com.rms.ratemanagementservice.util.RateValidator;
 
 @RestController
-@RequestMapping("/v1/surcharge")
+@RequestMapping("/surcharge/v1")
 public class RateManagementController {
 	
 	@Autowired
@@ -36,20 +37,20 @@ public class RateManagementController {
 	public ResponseEntity<?> addRate(@RequestBody(required= true) Rate rate) {
 		validator.validateRate(rate);
 		ratemanagementService.addRate(rate);
-		return null;
+		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 	
 	@PutMapping("/rate")
 	public ResponseEntity<?> updateRate(@RequestBody(required= true) Rate rate) {
 		validator.validateRate(rate);
 		ratemanagementService.updateRate(rate);
-		return null;
+		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
 	
 	@DeleteMapping("/rate")
 	public ResponseEntity<?> deleteRate(@RequestParam(required= true) Long rateId) {
 		ratemanagementService.deleteRate(rateId);
-		return null;
+		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
 
 }

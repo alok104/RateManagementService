@@ -1,4 +1,4 @@
-package com.rms.ratemanagementservice.authentication;
+package com.rms.ratemanagementservice.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -17,7 +17,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
          .authorizeRequests().anyRequest().authenticated()
          .and()
          .httpBasic();
-    }
+    } 
  
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) 

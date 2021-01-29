@@ -6,15 +6,23 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name = "rate")
 public class Rate {
 	@Id
 	private Long rateId;
 	private String rateDescription;
+	
+    @JsonFormat(pattern="yyyy-MM-dd")
 	private Date rateEffectiveDate;
+    
+    @JsonFormat(pattern="yyyy-MM-dd")
 	private Date rateExpirationDate;
+    
 	private Integer amount;
+	
 	public Long getRateId() {
 		return rateId;
 	}

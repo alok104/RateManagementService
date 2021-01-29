@@ -21,7 +21,7 @@ public class RatemanagementControllerAdvice {
 	@ExceptionHandler({ Exception.class })
 	public ResponseEntity<?> handleException(Exception ex) {
 		ApiError apiError = new ApiError();
-		apiError.setMessage(ex.getMessage());
+		apiError.setMessage(Constants.ERROR_MESSAGE);
 		apiError.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
 		return new ResponseEntity<>(apiError,HttpStatus.INTERNAL_SERVER_ERROR);
 	}
