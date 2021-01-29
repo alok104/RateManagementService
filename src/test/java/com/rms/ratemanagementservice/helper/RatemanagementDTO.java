@@ -15,7 +15,7 @@ public class RatemanagementDTO {
 		rate.setRateEffectiveDate(new Date());
 		rate.setRateExpirationDate(new Date());
 		rate.setAmount(2424);
-		return rate;  
+		return Optional.ofNullable(rate);  
 	}
 	
 	public Long generateRate() {
