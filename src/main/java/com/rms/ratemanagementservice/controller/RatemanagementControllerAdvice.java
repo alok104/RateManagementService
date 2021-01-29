@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import com.rms.ratemanagementservice.constant.Constants;
 import com.rms.ratemanagementservice.error.ApiError;
 import com.rms.ratemanagementservice.exception.CommonException;
 
